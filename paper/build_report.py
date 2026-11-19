@@ -4,13 +4,15 @@
 5 结果与分析 / 6 局限与伦理 / 7 结论 / 附录 / 参考文献
 
 运行：python paper/build_report.py
-输出：paper/TabM复现报告.docx（再由 Word 转 PDF）
+输出：paper/黄思桦 202425310307.docx（再由 Word 转 PDF）
+封面取自学校模板 paper/cover_template.docx，正文另起一节。
 所有数字均取自 results/ 下的 csv 与 summary，未做二次拟合。
 """
 
 import os
 
 from docx import Document
+from docx.enum.section import WD_SECTION_START
 from docx.enum.table import WD_TABLE_ALIGNMENT
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.oxml import OxmlElement
@@ -18,7 +20,14 @@ from docx.oxml.ns import qn
 from docx.shared import Cm, Pt
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-OUT = os.path.join(ROOT, "paper", "TabM复现报告.docx")
+COVER = os.path.join(ROOT, "paper", "cover_template.docx")
+AUTHOR = "黄思桦"
+STUDENT_ID = "202425310307"
+CLASS_NAME = "24软件工程*班"
+TEACHER = "蓝连涛"
+TITLE_CN = "TabM 的课程规模复现：参数高效集成在表格数据上的收益与成本"
+REPO_URL = "https://github.com/May712-hzx/Tabm"
+OUT = os.path.join(ROOT, "paper", f"{AUTHOR} {STUDENT_ID}.docx")
 FIG_ARCH = os.path.join(ROOT, "paper", "fig1_arch.png")
 FIG_DIR = os.path.join(ROOT, "plots")
 
@@ -127,31 +136,71 @@ def add_figure(doc, path, cap, width_cm=15.0):
 
 
 # --------------------------------------------------------------------------
-doc = Document()
-sec = doc.sections[0]
-sec.page_width = Cm(21.0)
-sec.page_height = Cm(29.7)
-sec.left_margin = Cm(2.5)
-sec.right_margin = Cm(2.5)
-sec.top_margin = Cm(2.5)
-sec.bottom_margin = Cm(2.5)
+def _set_cell_text(cell, text):
+    """改写单元格首个段落，保留模板原有 run 的字体与字号。"""
+    p = cell.paragraphs[0]
+    if not p.runs:
+        p.add_run(text)
+        return
+    p.runs[0].text = text
+    for r in list(p.runs[1:]):
+        r._element.getparent().remove(r._element)
+
+
+def build_cover(doc):
+    """按学校封面模板填写题目、小组成员与班级。"""
+    t = doc.tables[0]
+    _set_cell_text(t.cell(0, 1),
+                   "《TabM: Parameter-Efficient Ensembling》论文复现报告")
+    _set_cell_text(t.cell(1, 1), f"{STUDENT_ID}-{AUTHOR}")
+    _set_cell_text(t.cell(3, 1), CLASS_NAME)
+    # 模板预留了三个成员位，本项目为个人项目，删除多余的一行
+    t._tbl.remove(t.rows[2]._tr)
+
+
+if os.path.exists(COVER):
+    doc = Document(COVER)
+    build_cover(doc)
+    body_sec = doc.add_section(WD_SECTION_START.NEW_PAGE)
+else:
+    doc = Document()
+    body_sec = doc.sections[0]
+
+body_sec.page_width = Cm(21.0)
+body_sec.page_height = Cm(29.7)
+body_sec.left_margin = Cm(2.5)
+body_sec.right_margin = Cm(2.5)
+body_sec.top_margin = Cm(2.5)
+body_sec.bottom_margin = Cm(2.5)
+body_sec.header_distance = Cm(1.27)
+body_sec.footer_distance = Cm(1.27)
+
+# 正文节继承模板的“行网格”与页面边框：前者会把 1.5 倍行距按网格重新吸附、
+# 让版面明显变松（正文从 17 页涨到 19 页），这里只对正文节关掉，封面保持模板原样。
+_sect = body_sec._sectPr
+_grid = _sect.find(qn("w:docGrid"))
+if _grid is not None:
+    _grid.set(qn("w:type"), "none")
+_bd = _sect.find(qn("w:pgBorders"))
+if _bd is not None:
+    _sect.remove(_bd)
 
 st = doc.styles["Normal"]
 st.font.name = BODY_FONT
 st.font.size = Pt(10.5)
 
-# ---- 题目区 ----
+# ---- 正文标题区（封面已给出题目与成员信息）----
 p = doc.add_paragraph()
 p.alignment = WD_ALIGN_PARAGRAPH.CENTER
-p.paragraph_format.space_before = Pt(24)
-r = p.add_run("TabM 的课程规模复现：参数高效集成在表格数据上的收益与成本")
-set_run(r, HEAD_FONT, 18, bold=True)
+p.paragraph_format.space_before = Pt(6)
+r = p.add_run(TITLE_CN)
+set_run(r, HEAD_FONT, 16, bold=True)
 
 para(doc, "《深度学习》课程期末项目 · Project 5（主论文：TabM, ICLR 2025）",
      size=10.5, align=WD_ALIGN_PARAGRAPH.CENTER, indent=False, space_before=6)
-para(doc, "姓名：____________　　学号：____________　　专业班级：____________",
+para(doc, f"{AUTHOR}（{STUDENT_ID}）　　{CLASS_NAME}　　指导教师：{TEACHER}",
      size=10.5, align=WD_ALIGN_PARAGRAPH.CENTER, indent=False, space_after=6)
-para(doc, "代码仓库：https://github.com/May712-hzx/Tabm　　提交日期：2026-11-19",
+para(doc, f"代码仓库：{REPO_URL}　　提交日期：2026-11-19",
      size=9, align=WD_ALIGN_PARAGRAPH.CENTER, indent=False, space_after=12)
 
 # ---- 摘要 ----

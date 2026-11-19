@@ -3,7 +3,7 @@
 **一句话简介**：在纯 CPU、三数据集、统一超参与 5 种子的课程预算下，独立复现 TabM（参数高效集成）的机制与相对趋势，并用裁剪消融、成本测量、误差分析与 k 个独立 MLP 的成本上界，检验它的三条研究假设是否仍然成立。
 
 > 主论文：Gorishniy Y. et al. *TabM: Advancing Tabular Deep Learning with Parameter-Efficient Ensembling*, ICLR 2025
-> 仓库：<https://github.com/May712-hzx/Tabm> ｜ 课程报告：[`paper/TabM复现报告.pdf`](paper/TabM复现报告.pdf)
+> 仓库：<https://github.com/May712-hzx/Tabm> ｜ 课程报告：[`paper/黄思桦 202425310307.pdf`](paper/%E9%BB%84%E6%80%9D%E6%A1%A6%20202425310307.pdf)（含学校封面模板，18 页 = 封面 1 + 正文 17）
 
 ## 1 项目名称与简介
 
@@ -116,7 +116,7 @@ python -c "import pandas as pd; print(pd.read_csv('results/all_result.csv').tail
 | `python extension/run_indep_mlp.py` | k 个独立 MLP（成本上界，独立板块） | `results/extension/` |
 | `python extension/compare_with_tabm.py` | TabM vs 独立 MLP 逐 k 对照 | `results/extension/cost_comparison.csv` |
 | `python extension/plot_indep_mlp.py` | 性能 / 参数 / 时间 / 参数-性能 四联图 | `plots/extension/<ds>_indep_mlp_vs_tabm.png` |
-| `python paper/build_report.py` | 由结果文件生成课程报告 | `paper/TabM复现报告.docx` |
+| `python paper/build_report.py` | 由结果文件生成课程报告（以学校封面模板为底稿） | `paper/黄思桦 202425310307.docx`（再用 Word 另存 PDF） |
 
 每次运行都会自动留下 `results/logs/<脚本>_<时间戳>.log` 与 `results/experiments_log.md` 中对应的一行记录。
 
@@ -188,7 +188,7 @@ project_tabm/
 | 报告写作 | 结构设计、全部正文撰写、14 张表与 6 张图的制作 |
 | 质量核查 | 21 项单元测试；报告数字与 `results/` 原始文件逐项回对；README 复现流程自测 |
 
-生成式 AI 使用情况见 `paper/TabM复现报告.pdf` 附录 D：仅用于代码调试辅助、脚本样板与文字润色；全部实验数据由本人在本机实际运行产生，AI 未生成或修改任何实验结果，文字与代码均逐段核对。
+生成式 AI 使用情况见 `paper/黄思桦 202425310307.pdf` 附录 D：仅用于代码调试辅助、脚本样板与文字润色；全部实验数据由本人在本机实际运行产生，AI 未生成或修改任何实验结果，文字与代码均逐段核对。
 
 ## 12 已知限制、许可证、数据与第三方代码来源
 

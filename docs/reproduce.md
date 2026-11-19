@@ -19,7 +19,7 @@
 | 成本 | `results/cost/infer_cost.csv`（105 行）、`train_peak_seed0.csv`（21 行） | 推理延迟 / 权重内存 / 训练峰值 RSS |
 | 多样性 | `results/variance/member_variance.csv`（30 行） | 逐样本概率方差、argmax 分歧率、成员相关性 |
 | 拓展板块 | `results/extension/`（`indep_mlp_result.csv`、`cost_comparison.csv`、`member_probs_*.npz`） | k 个独立 MLP 成本上界 |
-| 报告 | `paper/TabM复现报告.pdf` / `.docx` + `paper/fig1_arch.png` | 课程报告（17 页），由 `paper/build_report.py` 生成 |
+| 报告 | `paper/黄思桦 202425310307.pdf` / `.docx` + `paper/fig1_arch.png` | 课程报告（18 页 = 封面 1 + 正文 17），以学校封面模板 `paper/cover_template.docx` 为底稿，由 `paper/build_report.py` 生成 |
 
 ## 2 命令表
 
@@ -40,7 +40,7 @@
 | 12 | `python scripts/eval_member_variance.py` | `results/variance/member_variance.csv` | 逐样本概率方差 / 分歧率（依赖 11 的 npz） | ~20 s |
 | 13 | `python extension/compare_with_tabm.py` | `results/extension/cost_comparison.csv` | TabM vs 独立 MLP 逐 k 对照 | ~5 s |
 | 14 | `python extension/plot_indep_mlp.py` | `plots/extension/<ds>_indep_mlp_vs_tabm.png` | 性能 / 参数 / 时间 / 参数-性能 四联图 | ~15 s |
-| 15 | `python paper/build_report.py` | `paper/TabM复现报告.docx` | 由结果文件生成课程报告（Python 需装 `python-docx`、`matplotlib`） | ~10 s |
+| 15 | `python paper/build_report.py` | `paper/黄思桦 202425310307.docx` | 由结果文件生成课程报告（以学校封面模板为底稿，封面 1 页 + 正文 17 页；Python 需装 `python-docx`、`matplotlib`；再用 Word「另存为 PDF」导出同名 PDF） | ~10 s |
 
 依赖顺序：3 依赖 1 的 ckpt；10 依赖 3；8 独立（k=16 走 ckpt）；4 依赖 1 的 ckpt；5 依赖 1 的 ckpt 与 3 的裁剪行；6 依赖 1 的 ckpt；7 独立重训；12 依赖 1 与 11；2 在 1/3 之后；13、14 依赖 11。
 
