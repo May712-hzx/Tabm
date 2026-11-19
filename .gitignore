@@ -27,6 +27,12 @@ results/error_analysis/run_err.txt
 results/extension/run_log.txt
 results/extra_metrics/auc_*.txt
 
+# ---- 课程报告（本地交付给教师，不公开到仓库；由 paper/build_report.py 生成）----
+paper/*.docx
+paper/*.pdf
+# 封面模板是 build_report.py 的底稿，保留以便他人复现
+!paper/cover_template.docx
+
 # ---- 临时文件 ----
 *.tmp
 ~$*
