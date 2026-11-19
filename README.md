@@ -22,8 +22,12 @@
 ## 1 环境安装
 
 ```bash
-pip install -r requirements.txt
+pip install -r requirements.txt        # 宽松依赖，装最新版
+# 或精确复现本机环境（推荐，版本已锁定）：
+pip install -r requirements.lock
 ```
+
+> 本仓库：<https://github.com/May712-hzx/Tabm>
 
 已验证环境（本机实测）：
 
@@ -496,14 +500,14 @@ TabM 的**理论权重内存**（`params × 4 B`）在 k=1→16 只从 0.26~0.36
 | 要求 | 状态 |
 |---|---|
 | README 含安装、数据、复现命令、预期输出 | ✅ 本文档 |
-| `config/` 每个结果可指向唯一配置 | ⚠️ 有 `src/config.py`，但未保存每次运行的配置快照 json |
+| `config/` 每个结果可指向唯一配置 | ✅ `src/config.py` 为唯一真源；`configs/default.json` 是运行配置快照（`python configs/dump_config.py` 重新导出） |
 | `tests/` 至少 3 项（划分、输出形状、损失梯度或指标） | ✅ **21 项，全绿**：`python -m unittest discover -s tests -v` |
 | 原始结果与汇总结果分开 | ⚠️ 仅一个 `all_result.csv`，未拆 raw / summary |
 | 实验记录表（编号/问题/唯一改动/环境命令/结果/判断） | ✅ `results/experiments_log.md`，`save_result()` 自动追加，已回填 165 条 |
 | 运行日志（每次运行留过程） | ✅ `src/run_log.py`：所有脚本入口已接入，产出 `results/logs/<脚本>_<时间戳>.log` 与 `results/logs/index.md` |
-| Git commit 记录 | ❌ 仓库未初始化 git |
+| Git commit 记录 | ✅ 已初始化并推送：<https://github.com/May712-hzx/Tabm>（`main` 分支，commit `e55f7d3`） |
 | 训练曲线保存 | ❌ 未保存 loss/val loss 曲线 |
-| 环境锁定（requirements.lock / environment.yml） | ⚠️ 只有 `requirements.txt`（无版本锁定） |
+| 环境锁定（requirements.lock / environment.yml） | ✅ `requirements.lock`（`pip freeze` 150 行，本机实测环境）；`requirements.txt` 保留为宽松依赖声明 |
 | 峰值显存/内存 | ✅ 主实验侧已测（§4.5，`results/cost/train_peak_seed0.csv`，每配置独立进程）；拓展侧有每成员 `peak_rss_mb` |
 
 ### 8.4 指标完整性
@@ -535,9 +539,7 @@ TabM 的**理论权重内存**（`params × 4 B`）在 k=1→16 只从 0.26~0.36
 
 1. **常数预测基线**（多数类 / 均值）——指导书步骤 2 点名要求，代价近乎为零，但会让三张主结果表多一行"下界参照"。
 2. **训练曲线**（每个 epoch 的 train/val loss）——现在早停只保留 best epoch，曲线没落盘。
-3. **git 初始化 + commit**——评审要看版本证据，`git init && git add . && git commit` 即可。
-4. **raw / summary 拆分**——把 `all_result.csv` 拆成 `raw/`（每次运行一行）与 `summary/`（按配置聚合的 mean±std），以及每次运行的配置快照 json。
-5. **环境版本锁定**——把 `pip freeze` 结果存成 `requirements.lock`。
+3. **raw / summary 拆分**——把 `all_result.csv` 拆成 `raw/`（每次运行一行）与 `summary/`（按配置聚合的 mean±std）。
 
 ---
 
@@ -582,7 +584,12 @@ TabM 的**理论权重内存**（`params × 4 B`）在 k=1→16 只从 0.26~0.36
 ```plaintext
 project_tabm/
 ├─ README.md
-├─ requirements.txt
+├─ requirements.txt          # 宽松依赖声明
+├─ requirements.lock         # 本机实测环境的精确版本（pip freeze）
+├─ .gitignore                # 排除 legacy/、逐成员 npz、旧 stdout 残留等
+├─ configs/
+│  ├─ default.json           # 运行配置快照（当前结果对应的配置）
+│  └─ dump_config.py         # 从 src/config.py 导出快照，保证可追溯
 ├─ src/
 │  ├─ config.py     # 实验配置唯一真源
 │  ├─ dataset.py    # 加载 + 防泄露预处理 + OOV 众数替换 + California 回退
