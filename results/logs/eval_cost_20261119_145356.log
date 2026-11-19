@@ -1,0 +1,135 @@
+# 运行日志: eval_cost
+开始时间: 2026-11-19 14:53:56
+工作目录: D:\project_tabm
+命令: python scripts\eval_cost.py
+Python: 3.13.13 @ Windows-11-10.0.22631-SP0
+依赖版本: torch=2.15.0+cpu, numpy=2.5.1, pandas=3.0.3, sklearn=1.9.1, xgboost=3.4.1
+==============================================================================
+
+=== 阶段 A: 推理时间 + 推理峰值 RSS ===
+[infer] adult seed=0
+  adult s0 xgb    k=nan infer=0.001 ms/sample peak=385 MB
+  adult s0 histgb k=nan infer=0.002 ms/sample peak=389 MB
+  adult s0 tabm   k=1 infer=0.005 ms/sample peak=395 MB
+  adult s0 tabm   k=4 infer=0.009 ms/sample peak=400 MB
+  adult s0 tabm   k=8 infer=0.016 ms/sample peak=403 MB
+  adult s0 tabm   k=16 infer=0.025 ms/sample peak=476 MB
+  adult s0 mlp    k=nan infer=0.004 ms/sample peak=476 MB
+[infer] adult seed=1
+  adult s1 xgb    k=nan infer=0.001 ms/sample peak=477 MB
+  adult s1 histgb k=nan infer=0.002 ms/sample peak=478 MB
+  adult s1 tabm   k=1 infer=0.006 ms/sample peak=479 MB
+  adult s1 tabm   k=4 infer=0.011 ms/sample peak=483 MB
+  adult s1 tabm   k=8 infer=0.015 ms/sample peak=486 MB
+  adult s1 tabm   k=16 infer=0.024 ms/sample peak=492 MB
+  adult s1 mlp    k=nan infer=0.003 ms/sample peak=492 MB
+[infer] adult seed=2
+  adult s2 xgb    k=nan infer=0.001 ms/sample peak=482 MB
+  adult s2 histgb k=nan infer=0.002 ms/sample peak=483 MB
+  adult s2 tabm   k=1 infer=0.004 ms/sample peak=484 MB
+  adult s2 tabm   k=4 infer=0.008 ms/sample peak=488 MB
+  adult s2 tabm   k=8 infer=0.015 ms/sample peak=490 MB
+  adult s2 tabm   k=16 infer=0.025 ms/sample peak=496 MB
+  adult s2 mlp    k=nan infer=0.003 ms/sample peak=496 MB
+[infer] adult seed=3
+  adult s3 xgb    k=nan infer=0.001 ms/sample peak=486 MB
+  adult s3 histgb k=nan infer=0.002 ms/sample peak=489 MB
+  adult s3 tabm   k=1 infer=0.005 ms/sample peak=491 MB
+  adult s3 tabm   k=4 infer=0.009 ms/sample peak=494 MB
+  adult s3 tabm   k=8 infer=0.015 ms/sample peak=497 MB
+  adult s3 tabm   k=16 infer=0.025 ms/sample peak=503 MB
+  adult s3 mlp    k=nan infer=0.003 ms/sample peak=503 MB
+[infer] adult seed=4
+  adult s4 xgb    k=nan infer=0.001 ms/sample peak=490 MB
+  adult s4 histgb k=nan infer=0.002 ms/sample peak=493 MB
+  adult s4 tabm   k=1 infer=0.005 ms/sample peak=494 MB
+  adult s4 tabm   k=4 infer=0.010 ms/sample peak=497 MB
+  adult s4 tabm   k=8 infer=0.015 ms/sample peak=500 MB
+  adult s4 tabm   k=16 infer=0.025 ms/sample peak=506 MB
+  adult s4 mlp    k=nan infer=0.003 ms/sample peak=506 MB
+[infer] california seed=0
+  california s0 xgb    k=nan infer=0.001 ms/sample peak=491 MB
+  california s0 histgb k=nan infer=0.002 ms/sample peak=491 MB
+  california s0 tabm   k=1 infer=0.004 ms/sample peak=492 MB
+  california s0 tabm   k=4 infer=0.006 ms/sample peak=495 MB
+  california s0 tabm   k=8 infer=0.011 ms/sample peak=499 MB
+  california s0 tabm   k=16 infer=0.017 ms/sample peak=505 MB
+  california s0 mlp    k=nan infer=0.001 ms/sample peak=505 MB
+[infer] california seed=1
+  california s1 xgb    k=nan infer=0.001 ms/sample peak=491 MB
+  california s1 histgb k=nan infer=0.002 ms/sample peak=491 MB
+  california s1 tabm   k=1 infer=0.003 ms/sample peak=492 MB
+  california s1 tabm   k=4 infer=0.005 ms/sample peak=494 MB
+  california s1 tabm   k=8 infer=0.010 ms/sample peak=498 MB
+  california s1 tabm   k=16 infer=0.017 ms/sample peak=504 MB
+  california s1 mlp    k=nan infer=0.002 ms/sample peak=504 MB
+[infer] california seed=2
+  california s2 xgb    k=nan infer=0.001 ms/sample peak=491 MB
+  california s2 histgb k=nan infer=0.002 ms/sample peak=491 MB
+  california s2 tabm   k=1 infer=0.003 ms/sample peak=491 MB
+  california s2 tabm   k=4 infer=0.005 ms/sample peak=494 MB
+  california s2 tabm   k=8 infer=0.008 ms/sample peak=499 MB
+  california s2 tabm   k=16 infer=0.018 ms/sample peak=505 MB
+  california s2 mlp    k=nan infer=0.001 ms/sample peak=505 MB
+[infer] california seed=3
+  california s3 xgb    k=nan infer=0.001 ms/sample peak=492 MB
+  california s3 histgb k=nan infer=0.002 ms/sample peak=492 MB
+  california s3 tabm   k=1 infer=0.003 ms/sample peak=493 MB
+  california s3 tabm   k=4 infer=0.005 ms/sample peak=496 MB
+  california s3 tabm   k=8 infer=0.010 ms/sample peak=500 MB
+  california s3 tabm   k=16 infer=0.017 ms/sample peak=506 MB
+  california s3 mlp    k=nan infer=0.001 ms/sample peak=506 MB
+[infer] california seed=4
+  california s4 xgb    k=nan infer=0.001 ms/sample peak=494 MB
+  california s4 histgb k=nan infer=0.002 ms/sample peak=494 MB
+  california s4 tabm   k=1 infer=0.002 ms/sample peak=494 MB
+  california s4 tabm   k=4 infer=0.005 ms/sample peak=497 MB
+  california s4 tabm   k=8 infer=0.009 ms/sample peak=502 MB
+  california s4 tabm   k=16 infer=0.018 ms/sample peak=508 MB
+  california s4 mlp    k=nan infer=0.001 ms/sample peak=508 MB
+[infer] covertype seed=0
+  covertype s0 xgb    k=nan infer=0.002 ms/sample peak=529 MB
+  covertype s0 histgb k=nan infer=0.009 ms/sample peak=527 MB
+  covertype s0 tabm   k=1 infer=0.003 ms/sample peak=524 MB
+  covertype s0 tabm   k=4 infer=0.006 ms/sample peak=527 MB
+  covertype s0 tabm   k=8 infer=0.011 ms/sample peak=531 MB
+  covertype s0 tabm   k=16 infer=0.022 ms/sample peak=538 MB
+  covertype s0 mlp    k=nan infer=0.002 ms/sample peak=538 MB
+[infer] covertype seed=1
+  covertype s1 xgb    k=nan infer=0.003 ms/sample peak=539 MB
+  covertype s1 histgb k=nan infer=0.010 ms/sample peak=537 MB
+  covertype s1 tabm   k=1 infer=0.003 ms/sample peak=534 MB
+  covertype s1 tabm   k=4 infer=0.007 ms/sample peak=538 MB
+  covertype s1 tabm   k=8 infer=0.011 ms/sample peak=541 MB
+  covertype s1 tabm   k=16 infer=0.021 ms/sample peak=547 MB
+  covertype s1 mlp    k=nan infer=0.002 ms/sample peak=547 MB
+[infer] covertype seed=2
+  covertype s2 xgb    k=nan infer=0.002 ms/sample peak=552 MB
+  covertype s2 histgb k=nan infer=0.010 ms/sample peak=560 MB
+  covertype s2 tabm   k=1 infer=0.003 ms/sample peak=556 MB
+  covertype s2 tabm   k=4 infer=0.006 ms/sample peak=561 MB
+  covertype s2 tabm   k=8 infer=0.011 ms/sample peak=564 MB
+  covertype s2 tabm   k=16 infer=0.023 ms/sample peak=570 MB
+  covertype s2 mlp    k=nan infer=0.002 ms/sample peak=570 MB
+[infer] covertype seed=3
+  covertype s3 xgb    k=nan infer=0.003 ms/sample peak=564 MB
+  covertype s3 histgb k=nan infer=0.004 ms/sample peak=559 MB
+  covertype s3 tabm   k=1 infer=0.003 ms/sample peak=556 MB
+  covertype s3 tabm   k=4 infer=0.006 ms/sample peak=560 MB
+  covertype s3 tabm   k=8 infer=0.011 ms/sample peak=563 MB
+  covertype s3 tabm   k=16 infer=0.021 ms/sample peak=570 MB
+  covertype s3 mlp    k=nan infer=0.002 ms/sample peak=570 MB
+[infer] covertype seed=4
+  covertype s4 xgb    k=nan infer=0.002 ms/sample peak=574 MB
+  covertype s4 histgb k=nan infer=0.003 ms/sample peak=571 MB
+  covertype s4 tabm   k=1 infer=0.003 ms/sample peak=567 MB
+  covertype s4 tabm   k=4 infer=0.006 ms/sample peak=572 MB
+  covertype s4 tabm   k=8 infer=0.011 ms/sample peak=574 MB
+  covertype s4 tabm   k=16 infer=0.022 ms/sample peak=581 MB
+  covertype s4 mlp    k=nan infer=0.002 ms/sample peak=581 MB
+推理成本 -> D:\project_tabm\results\cost\infer_cost.csv
+
+==============================================================================
+结束时间: 2026-11-19 14:55:33
+耗时: 96.7 s
+状态: OK

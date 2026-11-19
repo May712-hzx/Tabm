@@ -1,0 +1,14 @@
+# 运行日志: backfill_experiment_log
+开始时间: 2026-11-19 10:14:52
+工作目录: D:\project_tabm
+命令: python scripts\backfill_experiment_log.py
+Python: 3.13.13 @ Windows-11-10.0.22631-SP0
+依赖版本: torch=2.15.0+cpu, numpy=2.5.1, pandas=3.0.3, sklearn=1.9.1, xgboost=3.4.1
+==============================================================================
+
+csv 共 165 行，实验记录表已写入 165 条 -> D:\project_tabm\results\experiments_log.md
+
+==============================================================================
+结束时间: 2026-11-19 10:14:54
+耗时: 0.3 s
+状态: OK

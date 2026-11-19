@@ -1,0 +1,61 @@
+# 运行日志: eval_member_variance
+开始时间: 2026-11-19 14:53:03
+工作目录: D:\project_tabm
+命令: python scripts\eval_member_variance.py
+Python: 3.13.13 @ Windows-11-10.0.22631-SP0
+依赖版本: torch=2.15.0+cpu, numpy=2.5.1, pandas=3.0.3, sklearn=1.9.1, xgboost=3.4.1
+==============================================================================
+
+  adult s0 tabm_k16      var=0.00096 disagree=0.089 corr=0.911
+  adult s0 indep_mlp_16  var=0.00178 disagree=0.118 corr=0.885
+  adult s1 tabm_k16      var=0.00063 disagree=0.072 corr=0.928
+  adult s1 indep_mlp_16  var=0.00182 disagree=0.127 corr=0.877
+  adult s2 tabm_k16      var=0.00049 disagree=0.065 corr=0.935
+  adult s2 indep_mlp_16  var=0.00168 disagree=0.127 corr=0.874
+  adult s3 tabm_k16      var=0.00091 disagree=0.080 corr=0.920
+  adult s3 indep_mlp_16  var=0.00163 disagree=0.114 corr=0.884
+  adult s4 tabm_k16      var=0.00040 disagree=0.053 corr=0.946
+  adult s4 indep_mlp_16  var=0.00160 disagree=0.112 corr=0.885
+  california s0 tabm_k16      var=0.01231 disagree=nan corr=0.988
+  california s0 indep_mlp_16  var=0.01136 disagree=nan corr=0.989
+  california s1 tabm_k16      var=0.00652 disagree=nan corr=0.994
+  california s1 indep_mlp_16  var=0.00866 disagree=nan corr=0.992
+  california s2 tabm_k16      var=0.00710 disagree=nan corr=0.993
+  california s2 indep_mlp_16  var=0.00697 disagree=nan corr=0.994
+  california s3 tabm_k16      var=0.00619 disagree=nan corr=0.994
+  california s3 indep_mlp_16  var=0.00939 disagree=nan corr=0.991
+  california s4 tabm_k16      var=0.00628 disagree=nan corr=0.993
+  california s4 indep_mlp_16  var=0.00796 disagree=nan corr=0.992
+  covertype s0 tabm_k16      var=0.00222 disagree=0.280 corr=0.862
+  covertype s0 indep_mlp_16  var=0.00293 disagree=0.267 corr=0.873
+  covertype s1 tabm_k16      var=0.00222 disagree=0.275 corr=0.871
+  covertype s1 indep_mlp_16  var=0.00290 disagree=0.275 corr=0.870
+  covertype s2 tabm_k16      var=0.00206 disagree=0.260 corr=0.863
+  covertype s2 indep_mlp_16  var=0.00279 disagree=0.264 corr=0.878
+  covertype s3 tabm_k16      var=0.00224 disagree=0.275 corr=0.865
+  covertype s3 indep_mlp_16  var=0.00283 disagree=0.258 corr=0.876
+  covertype s4 tabm_k16      var=0.00223 disagree=0.281 corr=0.863
+  covertype s4 indep_mlp_16  var=0.00290 disagree=0.270 corr=0.868
+
+=== 按数据集+来源平均 ===
+                         var_mean  disagree     corr  n
+dataset    source                                      
+adult      indep_mlp_16   0.00170   0.11962  0.88088  5
+           tabm_k16       0.00068   0.07172  0.92826  5
+california indep_mlp_16   0.00887       NaN  0.99153  5
+           tabm_k16       0.00768       NaN  0.99244  5
+covertype  indep_mlp_16   0.00287   0.26672  0.87303  5
+           tabm_k16       0.00219   0.27430  0.86471  5
+
+=== TabM k=16 在 all_result.csv 里记录的 member_corr（对照）===
+dataset
+adult         0.9283
+california    0.9924
+covertype     0.8647
+
+已写入 D:\project_tabm\results\variance\member_variance.csv
+
+==============================================================================
+结束时间: 2026-11-19 14:53:25
+耗时: 21.4 s
+状态: OK

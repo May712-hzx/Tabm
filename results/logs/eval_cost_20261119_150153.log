@@ -1,0 +1,38 @@
+# 运行日志: eval_cost
+开始时间: 2026-11-19 15:01:53
+工作目录: D:\project_tabm
+命令: python scripts\eval_cost.py --train-peak
+Python: 3.13.13 @ Windows-11-10.0.22631-SP0
+依赖版本: torch=2.15.0+cpu, numpy=2.5.1, pandas=3.0.3, sklearn=1.9.1, xgboost=3.4.1
+==============================================================================
+
+=== 阶段 A 已有结果，跳过（删除 results/cost/infer_cost.csv 可重跑）===
+=== 阶段 B: 训练峰值 RSS（每配置独立进程，seed=0）===
+  adult xgb    k=nan train=0.96s peak=385 MB
+  adult histgb k=nan train=0.87s peak=389 MB
+  adult tabm   k=1 train=19.87s peak=464 MB
+  adult tabm   k=4 train=42.86s peak=474 MB
+  adult tabm   k=8 train=113.03s peak=487 MB
+  adult tabm   k=16 train=201.15s peak=503 MB
+  adult mlp    k=nan train=15.37s peak=460 MB
+  california xgb    k=nan train=0.82s peak=357 MB
+  california histgb k=nan train=0.64s peak=353 MB
+  california tabm   k=1 train=46.12s peak=438 MB
+  california tabm   k=4 train=98.6s peak=450 MB
+  california tabm   k=8 train=159.14s peak=464 MB
+  california tabm   k=16 train=189.03s peak=488 MB
+  california mlp    k=nan train=23.38s peak=436 MB
+  covertype xgb    k=nan train=2.79s peak=389 MB
+  covertype histgb k=nan train=4.17s peak=409 MB
+  covertype tabm   k=1 train=103.63s peak=455 MB
+  covertype tabm   k=4 train=262.05s peak=471 MB
+  covertype tabm   k=8 train=431.72s peak=481 MB
+  covertype tabm   k=16 train=806.28s peak=510 MB
+  covertype mlp    k=nan train=68.61s peak=455 MB
+推理成本 -> D:\project_tabm\results\cost\infer_cost.csv
+训练峰值 -> D:\project_tabm\results\cost\train_peak_seed0.csv
+
+==============================================================================
+结束时间: 2026-11-19 15:54:23
+耗时: 3149.9 s
+状态: OK

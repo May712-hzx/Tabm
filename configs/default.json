@@ -1,0 +1,39 @@
+{
+  "DATASETS": [
+    "adult",
+    "california",
+    "covertype"
+  ],
+  "SEEDS": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "K_LIST": [
+    1,
+    4,
+    8,
+    16
+  ],
+  "H3_SOURCE_K": 16,
+  "CROP_SIZES": [
+    4,
+    8
+  ],
+  "MAX_SAMPLES": {
+    "adult": null,
+    "california": null,
+    "covertype": 50000
+  },
+  "N_BLOCKS": 2,
+  "D_BLOCK": 256,
+  "DROPOUT": 0.1,
+  "MAX_EPOCH": 100,
+  "PATIENCE": 10,
+  "LR": 0.002,
+  "WEIGHT_DECAY": 0.0003,
+  "BATCH_SIZE": 256,
+  "N_ESTIMATORS": 100
+}

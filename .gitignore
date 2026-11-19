@@ -1,0 +1,32 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+.pytest_cache/
+
+# ---- IDE / 编辑器 ----
+.idea/
+.vscode/
+
+# ---- 旧版遗留（README §13：架构/列名已过时，不参与任何分析）----
+legacy/
+
+# ---- 大体积可重生成的中间产物 ----
+# 逐成员预测 54.9 MB，由 extension/run_indep_mlp.py 重新生成
+results/extension/*.npz
+
+# ---- 结果备份（仅本地溯源用，不属于交付结果）----
+results/all_result.csv.bak
+results/all_result.csv.bak2
+results/all_result_legacy.csv
+
+# ---- 早期手工重定向的 stdout 残留（已由 results/logs/ 的 run_log 取代）----
+results/error_analysis/run_log.txt
+results/error_analysis/run_err.txt
+results/extension/run_log.txt
+results/extra_metrics/auc_*.txt
+
+# ---- 临时文件 ----
+*.tmp
+~$*

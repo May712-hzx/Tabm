@@ -1,0 +1,31 @@
+# 运行日志: fill_crop_auc
+开始时间: 2026-11-19 14:04:42
+工作目录: D:\project_tabm
+命令: python scripts\fill_crop_auc.py --fill
+Python: 3.13.13 @ Windows-11-10.0.22631-SP0
+依赖版本: torch=2.15.0+cpu, numpy=2.5.1, pandas=3.0.3, sklearn=1.9.1, xgboost=3.4.1
+==============================================================================
+
+推理 adult seed=0
+推理 adult seed=1
+推理 adult seed=2
+推理 adult seed=3
+推理 adult seed=4
+推理 california seed=0
+推理 california seed=1
+推理 california seed=2
+推理 california seed=3
+推理 california seed=4
+推理 covertype seed=0
+推理 covertype seed=1
+推理 covertype seed=2
+推理 covertype seed=3
+推理 covertype seed=4
+可回填 40 行
+已写入 D:\project_tabm\results\all_result.csv
+校验：crop 行仍缺 AUC = 20
+
+==============================================================================
+结束时间: 2026-11-19 14:05:27
+耗时: 43.5 s
+状态: OK

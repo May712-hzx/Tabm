@@ -1,0 +1,77 @@
+# 运行日志: eval_extra_auc
+开始时间: 2026-11-19 10:41:03
+工作目录: D:\project_tabm
+命令: python scripts\eval_extra_auc.py --fill
+Python: 3.13.13 @ Windows-11-10.0.22631-SP0
+依赖版本: torch=2.15.0+cpu, numpy=2.5.1, pandas=3.0.3, sklearn=1.9.1, xgboost=3.4.1
+==============================================================================
+
+续跑：已有 12 条结果，自动跳过
+[1/35] seed=0 xgb  (已有，跳过)
+[2/35] seed=0 histgb  (已有，跳过)
+[3/35] seed=0 mlp  (已有，跳过)
+[4/35] seed=0 tabm(k=1)  (已有，跳过)
+[5/35] seed=0 tabm(k=4)  (已有，跳过)
+[6/35] seed=0 tabm(k=8)  (已有，跳过)
+[7/35] seed=0 tabm(k=16)  (已有，跳过)
+[8/35] seed=1 xgb  (已有，跳过)
+[9/35] seed=1 histgb  (已有，跳过)
+[10/35] seed=1 mlp  (已有，跳过)
+[11/35] seed=1 tabm(k=1)  (已有，跳过)
+[12/35] seed=1 tabm(k=4)  (已有，跳过)
+[13/35] seed=1 tabm(k=8)
+    auc=0.9816 f1=0.7886 (retrain, 460s)
+[14/35] seed=1 tabm(k=16)
+    auc=0.9791 f1=0.7809 (ckpt, 0s)
+[15/35] seed=2 xgb
+    auc=0.9778 f1=0.7544 (retrain, 2s)
+[16/35] seed=2 histgb
+    auc=0.9753 f1=0.7640 (retrain, 4s)
+[17/35] seed=2 mlp
+    auc=0.9793 f1=0.7889 (retrain, 70s)
+[18/35] seed=2 tabm(k=1)
+    auc=0.9813 f1=0.7975 (retrain, 69s)
+[19/35] seed=2 tabm(k=4)
+    auc=0.9806 f1=0.7769 (retrain, 173s)
+[20/35] seed=2 tabm(k=8)
+    auc=0.9815 f1=0.7822 (retrain, 434s)
+[21/35] seed=2 tabm(k=16)
+    auc=0.9785 f1=0.7551 (ckpt, 0s)
+[22/35] seed=3 xgb
+    auc=0.9777 f1=0.7656 (retrain, 2s)
+[23/35] seed=3 histgb
+    auc=0.9567 f1=0.7141 (retrain, 2s)
+[24/35] seed=3 mlp
+    auc=0.9808 f1=0.7915 (retrain, 86s)
+[25/35] seed=3 tabm(k=1)
+    auc=0.9824 f1=0.8113 (retrain, 109s)
+[26/35] seed=3 tabm(k=4)
+    auc=0.9842 f1=0.8119 (retrain, 264s)
+[27/35] seed=3 tabm(k=8)
+    auc=0.9825 f1=0.7838 (retrain, 447s)
+[28/35] seed=3 tabm(k=16)
+    auc=0.9812 f1=0.7661 (ckpt, 0s)
+[29/35] seed=4 xgb
+    auc=0.9748 f1=0.7487 (retrain, 2s)
+[30/35] seed=4 histgb
+    auc=0.9234 f1=0.6619 (retrain, 1s)
+[31/35] seed=4 mlp
+    auc=0.9783 f1=0.7450 (retrain, 67s)
+[32/35] seed=4 tabm(k=1)
+    auc=0.9750 f1=0.7310 (retrain, 52s)
+[33/35] seed=4 tabm(k=4)
+    auc=0.9807 f1=0.7728 (retrain, 226s)
+[34/35] seed=4 tabm(k=8)
+    auc=0.9807 f1=0.7650 (retrain, 551s)
+[35/35] seed=4 tabm(k=16)
+    auc=0.9781 f1=0.7486 (ckpt, 0s)
+
+算完 35 条 -> results\extra_metrics\covertype_auc.csv
+已备份 -> D:\project_tabm\results\all_result.csv.bak
+回填完成，更新 35 行 -> D:\project_tabm\results\all_result.csv
+校验：covertype 仍有 NaN 的行数 = 20
+
+==============================================================================
+结束时间: 2026-11-19 11:31:29
+耗时: 3025.6 s
+状态: OK
